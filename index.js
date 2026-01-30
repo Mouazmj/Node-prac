@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
         path += '/about.html'
     } else if (req.url === '/om-mig') {
         res.statusCode = 301
-        res.redri('Location', '/about')
+        res.setHeader('Location', '/about')
         res.end()
         return;
     } else {
