@@ -16,3 +16,16 @@ app.get('/', (req, res) => {
     res.render('partials/head', { username: 'mouazjamal', blogs: day, title: 'head' })
 })
 
+
+app.get('/about', (req, res) => {
+    res.status(200).sendFile('./views/about.html', { root: __dirname })
+})
+
+app.get('/about-me', (req, res) => {
+    res.status(301).redirect('/about')
+})
+
+
+app.use((req, res) => {
+    res.status(404).sendFile('./views/404.html', { root: __dirname })
+})
